@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :items
+  resources :categories
+  resources :brands
   resources :users
   root 'welcome#index'
   get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
