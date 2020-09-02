@@ -1,14 +1,31 @@
 <%= stylesheet_link_tag "sidebar", media: "all" %>
 
 <div class="sidebar">
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'Brand', brands_path  %>
-  <%= link_to 'Categories', categories_path %>
-  <%= link_to 'Items', items_path %>
-  <%= link_to 'Storage', items_path %>
+
+
+  <%= link_to 'Home', root_path, class: "side-1" %>
+
+  <% if current_user.admin %>
+  <%= link_to 'Users', users_path, class: "side-2" %>
+  <% end %>
+
+  <% if current_user.admin %>
+  <%= link_to 'Brand', brands_path, class: "side-3"  %>
+  <% end %>
+
+  <% if current_user.admin %>
+  <%= link_to 'Categories', categories_path, class: "side-4" %>
+  <% end %>
+
+  <% if current_user.admin %>
+  <%= link_to 'Items', items_path, class: "side-5" %>
+  <% end %>
+
+  <% if current_user.admin %>
+  <%= link_to 'Storage', storages_path, class: "side-6" %>
+  <% end %>
+
   <%= link_to 'Notification', items_path %>
-  <%= link_to 'LogOut', items_path %>
-
-
+  <%= link_to 'LogOut', logout_path %>
 
 </div>

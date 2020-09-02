@@ -1,0 +1,35 @@
+<%= form_with(model: storage, local: true, class: "card-body") do |form| %>
+<% if storage.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(storage.errors.count, "error") %> prohibited this storage from being saved:</h2>
+
+  <ul>
+    <% storage.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= form.collection_select(:item_id, Item.all, :id, :name, { :prompt => "Select an Item", :selected => @storage.item_id }, { class: "form-control" })%>
+
+</div>
+
+<div class="form-group">
+  <%= form.number_field :qty, placeholder: "Quantity", class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :procure_time %>
+  <%= form.datetime_select :procure_time, placeholder: "Procurement Time", class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.number_field :buffer, placeholder: "Buffer", class: "form-control" %>
+</div>
+
+<div class="actions">
+  <%= form.submit nil, class: "btn btn-primary" %>
+</div>
+<% end %>

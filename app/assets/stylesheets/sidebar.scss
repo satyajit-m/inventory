@@ -25,7 +25,7 @@
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: rgb(119, 125, 146);
   color: white;
 }
 
@@ -33,7 +33,6 @@
 div.content {
   margin-left: 200px;
   padding: 1px 16px;
-  height: 1000px;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */

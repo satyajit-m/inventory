@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
-  before_action :set_token_nil
+  helper_method :check_user_is_admin
+
 
   def authenticate_user!
     return if current_user.present?
@@ -11,19 +12,16 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:auth_token]
-      print 456
       @current_user ||= User.find_by_auth_token(session[:auth_token])
     else
-      print 123
       @current_user = nil
       # flash[:info] = 'No User Found'
 
     end
   end
-
-  private
-
-  def set_token_nil
-    User.where.not(auth_token: nil).update_all(auth_token: nil) unless session[:auth_token].present?
+  
+  def check_user_is_admin
+    redirect_to root_path, flash: { warning: t('application.only_admin') } unless current_user.admin
   end
+
 end

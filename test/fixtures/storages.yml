@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: one
+  qty: 1
+  procure_time: 2020-08-30 13:19:35
+  buffer: 1
+
+two:
+  item: two
+  qty: 1
+  procure_time: 2020-08-30 13:19:35
+  buffer: 1

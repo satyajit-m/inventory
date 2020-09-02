@@ -1,23 +1,9 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
-
- */
 @import "bootstrap";
 @import "font-awesome";
 
 .alert {
   position: absolute;
-  top: 0;
+  top: 55;
   left: 0;
   right: 0;
   text-align: center;
@@ -25,4 +11,9 @@
 
 .footer {
   background-color: #111;
+}
+
+body {
+  padding: 55px 0px 34px;
+  overflow: auto;
 }

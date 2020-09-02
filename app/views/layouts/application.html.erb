@@ -2,31 +2,27 @@
 <html>
 
 <head>
-    <title>Inventory</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <title>Inventory</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', params[:controller], :media => "all" %>
-    <%= javascript_pack_tag 'any', 'data-turbolinks-track': 'reload' %>
-</head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'any', 'data-turbolinks-track': 'reload' %>
+ </head>
 
 <body>
-    <header>
-        <% if current_user.nil? %>
-
-        <%= render "layouts/header" %>
-        <% end %>
-
-    </header>
-    <main>
-        <% if current_user.present? %>
-        <%= render "layouts/sidebar_menu" %>
-        <% end %>
-        <div class="container content">
-            <%= yield %>
-        </div>
-    </main>
-    <%= render "layouts/footer" %>
+  <header>
+    <%= render "layouts/header" %>
+  </header>
+  <main>
+    <% if current_user.present? %>
+    <%= render "layouts/sidebar_menu" %>
+    <% end %>
+    <div class="content">
+      <%= yield %>
+    </div>
+  </main>
+  <%= render "layouts/footer" %>
 
 </body>
 
