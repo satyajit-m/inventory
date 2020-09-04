@@ -5,11 +5,7 @@
   <title>Inventory 2</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', params[:controller], :media => "all" %>
-
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
+  
 </head>
 
 <body>
@@ -21,7 +17,7 @@
     </div>
 
     <% end %>
-    <h1>Welcome to The Inventory Management System</h1>
+    <h1>Welcome to The Inventory Management</h1>
     <% if current_user.present? %>
     <div>Welcome <%= current_user.name.html_safe %></div>
     <% else %>

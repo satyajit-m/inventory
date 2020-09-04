@@ -14,9 +14,9 @@ const { flash_info } = require("./any");
 // const imagePath = (name) => images(name, true)
 //= require jquery3
 //= require jquery.turbolinks
-//= require jquery_ujs
 //= require popper
 //= require bootstrap
+//= require bootstrap.min
 //= require bootstrap-sprockets
 //= require any
 //= require sidebar
@@ -27,8 +27,12 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
-require("packs/sidebar")
+require("packs/sidebar");
 flash_info();
+import "bootstrap/dist/js/bootstrap";
+import "@fortawesome/fontawesome-free/js/all";
+import "bootstrap";
+import "../stylesheets/application";
 
 $(document).on("turbolinks:load", function () {
   var path = location.pathname;

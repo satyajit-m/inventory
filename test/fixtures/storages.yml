@@ -3,11 +3,11 @@
 one:
   item: one
   qty: 1
-  procure_time: 2020-08-30 13:19:35
-  buffer: 1
+  min_buffer: 1
+  max_buffer: MyString
 
 two:
   item: two
   qty: 1
-  procure_time: 2020-08-30 13:19:35
-  buffer: 1
+  min_buffer: 1
+  max_buffer: MyString

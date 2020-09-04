@@ -1,7 +1,5 @@
 class StoragesController < ApplicationController
-  before_action :set_storage, only: %i[show edit update destroy]
-  before_action :authenticate_user!
-  before_action :check_user_is_admin
+  before_action :set_storage, only: [:show, :edit, :update, :destroy]
 
   # GET /storages
   # GET /storages.json
@@ -11,7 +9,8 @@ class StoragesController < ApplicationController
 
   # GET /storages/1
   # GET /storages/1.json
-  def show; end
+  def show
+  end
 
   # GET /storages/new
   def new
@@ -19,7 +18,8 @@ class StoragesController < ApplicationController
   end
 
   # GET /storages/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /storages
   # POST /storages.json
@@ -62,14 +62,13 @@ class StoragesController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_storage
+      @storage = Storage.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_storage
-    @storage = Storage.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
-  def storage_params
-    params.require(:storage).permit(:item_id, :qty, :procure_time, :buffer)
-  end
+    # Only allow a list of trusted parameters through.
+    def storage_params
+      params.require(:storage).permit(:item_id, :qty, :min_buffer, :max_buffer)
+    end
 end

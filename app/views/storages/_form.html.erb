@@ -1,35 +1,31 @@
 <%= form_with(model: storage, local: true, class: "card-body") do |form| %>
-<% if storage.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(storage.errors.count, "error") %> prohibited this storage from being saved:</h2>
-
-  <ul>
-    <% storage.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-<div class="form-group">
-  <%= form.collection_select(:item_id, Item.all, :id, :name, { :prompt => "Select an Item", :selected => @storage.item_id }, { class: "form-control" })%>
-
-</div>
-
-<div class="form-group">
-  <%= form.number_field :qty, placeholder: "Quantity", class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :procure_time %>
-  <%= form.datetime_select :procure_time, placeholder: "Procurement Time", class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.number_field :buffer, placeholder: "Buffer", class: "form-control" %>
-</div>
-
-<div class="actions">
-  <%= form.submit nil, class: "btn btn-primary" %>
-</div>
+  <% if storage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(storage.errors.count, "error") %> prohibited this storage from being saved:</h2>
+      <ul>
+        <% storage.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :item_id, class: "font-weight-bold" %>
+    <%= form.collection_select(:item_id, Item.all, :id, :name, { prompt: "Select an Item", selected: @storage.item_id }, { required: true, class: "form-control" })%>
+  </div>
+  <div class="form-group">
+    <%= form.label :qty, class: "font-weight-bold" %>
+    <%= form.number_field :qty, placeholder: "Enter total quantity", required: true, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :min_buffer, class: "font-weight-bold" %>
+    <%= form.number_field :min_buffer, placeholder: "Enter minimum buffer", required: true, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :max_buffer, class: "font-weight-bold" %>
+    <%= form.text_field :max_buffer, placeholder: "Enter maximum buffer", required: true, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= form.submit nil, class: "btn btn-primary" %>
+  </div>
 <% end %>

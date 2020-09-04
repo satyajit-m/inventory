@@ -29,7 +29,7 @@
       <td><%= item.status %></td>
       <td><%= item.notes %></td>
       <td><%= link_to fa_icon("eye"), item, class: "btn btn-primary" %></td>
-      <td><%= link_to fa_icon("pencil"), edit_item_path(item), class: "btn btn-info" %></td>
+      <td><%= link_to fa_icon("edit"), edit_item_path(item), class: "btn btn-info" %></td>
       <td><%=button_to(item, method: :delete, class: "btn btn-danger") do %>
         <i class="fa fa-trash" aria-hidden="true"></i>
       </td>

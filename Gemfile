@@ -5,9 +5,8 @@ ruby '2.6.6'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.0'
-gem 'bootstrap-sass', '~> 3.4.1'
 gem 'carrierwave', '~> 2.0'
-gem 'font-awesome-rails'
+gem 'font_awesome5_rails'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
@@ -15,8 +14,6 @@ gem 'omniauth-google-oauth2'
 gem 'popper_js', '~> 1.14.5'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
-gem 'sassc-rails', '>= 2.1.0'
-gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem 'turbolinks', '~> 5.2.0'
 gem 'webpacker', '~> 4.0'
 # gem 'redis', '~> 4.0'
@@ -31,8 +28,10 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '~> 3.0'
   gem 'better_errors'
+  gem 'guard-livereload'
+  gem 'listen', '~> 3.0'
+  gem 'spring'
   gem 'web-console', '>= 3.3.0'
 end
 

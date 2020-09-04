@@ -6,7 +6,6 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
@@ -31,7 +30,7 @@
         <th scope="row"><%= brand.id %></th>
         <td><%= brand.name %></td>
         <td><%= link_to fa_icon("eye"), brand, class: "btn btn-primary" %></td>
-        <td><%= link_to fa_icon("pencil"), edit_brand_path(brand), class: "btn btn-info" %></td>
+        <td><%= link_to fa_icon("edit"), edit_brand_path(brand), class: "btn btn-info" %></td>
         <td><%=button_to(brand, method: :delete, class: "btn btn-danger") do %>
           <i class="fa fa-trash" aria-hidden="true"></i>
 

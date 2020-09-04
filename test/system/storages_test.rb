@@ -14,9 +14,9 @@ class StoragesTest < ApplicationSystemTestCase
     visit storages_url
     click_on "New Storage"
 
-    fill_in "Buffer", with: @storage.buffer
     fill_in "Item", with: @storage.item_id
-    fill_in "Procure time", with: @storage.procure_time
+    fill_in "Max buffer", with: @storage.max_buffer
+    fill_in "Min buffer", with: @storage.min_buffer
     fill_in "Qty", with: @storage.qty
     click_on "Create Storage"
 
@@ -28,9 +28,9 @@ class StoragesTest < ApplicationSystemTestCase
     visit storages_url
     click_on "Edit", match: :first
 
-    fill_in "Buffer", with: @storage.buffer
     fill_in "Item", with: @storage.item_id
-    fill_in "Procure time", with: @storage.procure_time
+    fill_in "Max buffer", with: @storage.max_buffer
+    fill_in "Min buffer", with: @storage.min_buffer
     fill_in "Qty", with: @storage.qty
     click_on "Update Storage"
 

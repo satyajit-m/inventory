@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_30_074935) do
+ActiveRecord::Schema.define(version: 2020_09_04_023240) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 2020_08_30_074935) do
 
   create_table "storages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "item_id", null: false
-    t.integer "qty"
-    t.datetime "procure_time"
-    t.integer "buffer"
+    t.integer "qty", null: false
+    t.integer "min_buffer", null: false
+    t.string "max_buffer", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_storages_on_item_id"
