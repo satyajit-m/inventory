@@ -31,6 +31,7 @@ require("packs/sidebar");
 flash_info();
 import "bootstrap/dist/js/bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
+import "../../../node_modules/@fortawesome/fontawesome-free/js/all";
 import "bootstrap";
 import "../stylesheets/application";
 
