@@ -15,7 +15,7 @@
   <tbody>
     <% @storages.each do |storage| %>
       <tr>
-        <td><%= storage.item_id %></td>
+        <td><%= storage.item.name %></td>
         <td><%= storage.qty %></td>
         <td><%= storage.min_buffer %></td>
         <td><%= storage.max_buffer %></td>

@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_04_023240) do
+ActiveRecord::Schema.define(version: 2020_09_06_152446) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_brands_on_name", unique: true
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_09_04_023240) do
     t.string "name", null: false
     t.bigint "brand_id", null: false
     t.bigint "category_id", null: false
-    t.bigint "user_id", null: false
     t.boolean "status"
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_09_04_023240) do
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name", unique: true
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "storages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -64,6 +62,5 @@ ActiveRecord::Schema.define(version: 2020_09_04_023240) do
 
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "users"
   add_foreign_key "storages", "items"
 end

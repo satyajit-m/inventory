@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[show edit update destroy]
+  before_action :set_item, only: %i[show edit update destroy unlink]
   before_action :authenticate_user!
   before_action :check_user_is_admin
 
@@ -59,6 +59,13 @@ class ItemsController < ApplicationController
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # Unlink User
+  def unlink
+    @item.update_attribute(:user_id, nil)
+    p 123
+    redirect_to @item
   end
 
   private

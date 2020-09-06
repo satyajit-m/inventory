@@ -5,7 +5,6 @@ class User < ApplicationRecord
   validates :email, format: { with: VALID_EMAIL_REGEX }
 
   def self.from_omniauth(auth)
-    puts auth
     data = auth.info
     user = User.where(email: data['email']).first
     user
