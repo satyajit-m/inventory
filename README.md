@@ -21,6 +21,11 @@
 
 * Database creation
 
+  The database used is MySQL2
+  MySql1 user_name - rails_user
+  MySql2 password - rails
+  
+
 * Database initialization
 
 * How to run the test suite
