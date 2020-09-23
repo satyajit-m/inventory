@@ -1,11 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version :- 2.6.6
 
-Things you may want to cover:
-
-* Ruby version
+* Initializing the app :-
+  i. bundle install
+  ii. rails db:create
+  iii. rails db:seed
+  
+* Running the app :-
+  
+  i. ruby .\bin\webpack-dev-server
+  ii. rails s
 
 * System dependencies
 
@@ -21,4 +26,3 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
