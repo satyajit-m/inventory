@@ -3,7 +3,7 @@
 * Ruby version :- 2.6.6
 
 * Initializing the app :-
-  i. bundle install
+  i. bundle install\n
   ii. rails db:create
   iii. rails db:seed
   
