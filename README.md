@@ -2,13 +2,13 @@
 
 * Ruby version :- 2.6.6
 
-* Initializing the app :-\
+* Initializing the app :-
 
   i. bundle install\
   ii. rails db:create\
   iii. rails db:seed
   
-* Running the app :-\
+* Running the app :-
   
   i. ruby .\bin\webpack-dev-server\
   ii. rails s
