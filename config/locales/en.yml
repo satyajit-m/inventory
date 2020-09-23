@@ -31,43 +31,44 @@
 
 en:
   application:
+    login_required: "You must login to view"
     only_admin: "You are not an ADMIN. Only Admins are allowed"
   brand:
     create_success: "Brand was Created Successfully"
-    update_success: "Brand was Updated Successfully"
     delete_success: "Brand was Deleted Successfully"
+    update_success: "Brand was Updated Successfully"
   category:
     create_success: "Category was Created Successfully"
-    update_success: "Category was Updated Successfully"
     delete_success: "Category was Deleted Successfully"
+    update_success: "Category was Updated Successfully"
   issue:
-    create_success: "Issue was Created Successfully"
-    update_success: "Issue was Updated Successfully"
-    delete_success: "Issue was Deleted Successfully"
-    confirm_resolved: "Are you sure that Issue is resolved?"
-    confirm_delete: "Are you sure you want to delete the issue?"
-    already_exist: "Issue already exists and not yet resolved"
-    resolved: "The Issue has been resolved"
-    create_unauthorized: "Not allowed to create an issue"
     access_unauthorized: "Not allowed to view other issue"
+    already_exist: "Issue already exists and not yet resolved"
+    confirm_delete: "Are you sure you want to delete the issue?"
+    confirm_resolved: "Are you sure that Issue is resolved?"
+    create_success: "Issue was Created Successfully"
+    create_unauthorized: "Not allowed to create an issue"
+    delete_success: "Issue was Deleted Successfully"
+    update_success: "Issue was Updated Successfully"
+    resolved: "The Issue has been resolved"
   item:
-    create_success: "Item was Created Successfully"
-    update_success: "Item was Updated Successfully"
-    delete_success: "Item was Deleted Successfully"
-    user_present: "Cannot Remove Item which has associated Users"
     already_assigned: "Item already assigned to user"
-    stock_empty: "Stock is Empty"
+    create_success: "Item was Created Successfully"
+    delete_success: "Item was Deleted Successfully"
     not_listed: "Item isn't listed in storage"
     remove_user_success: "User removed Successfully"
     remove_user_unsucces: "User cannot be removed"
+    stock_empty: "Stock is Empty"
+    update_success: "Item was Updated Successfully"
+    user_present: "Cannot Remove Item which has associated Users"    
   session:
-    user_not_exist: "Sorry! User Does not Exist"
-    signin_success: "Sign In Success"
     logout_success: "Log Out Success"
+    signin_success: "Sign In Success"
+    user_not_exist: "Sorry! User Does not Exist"
   storage:
     create_success: "Storage was Created Successfully"
-    update_success: "Storage was Updated Successfully"
     delete_success: "Storage was Deleted Successfully"
+    update_success: "Storage was Updated Successfully"
 
   
   

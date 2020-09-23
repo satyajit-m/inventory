@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
     end
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, flash: { success: t("item.create_success") } }
+      format.html { redirect_to items_url, flash: { success: t("item.delete_success") } }
       format.json { head :no_content }
     end
   end

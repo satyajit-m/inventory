@@ -1,13 +1,14 @@
 class IssuesController < ApplicationController
   before_action :set_issue, only: %i[show edit update destroy mark_resolved]
   before_action :check_admin, only: %i[new edit create]
+  before_action :authenticate_user!
 
   def index
     @issues = @current_user.admin ? Issue.all : Issue.where(user: current_user)
   end
 
   def show
-    redirect_to issues_path, flash: { warning: t("issue.access_unauthorized") } if @issue.user == current_user && !current_user.admin 
+    redirect_to issues_path, flash: { warning: t("issue.access_unauthorized") } if @issue.user != current_user && !current_user.admin 
   end
 
   def new

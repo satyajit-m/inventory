@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     return if current_user.present?
 
-    redirect_to  root_path, flash: { danger: "You must login to view" }
+    redirect_to  root_path, flash: { danger: t("application.login_required") }
   end
 
   def current_user
@@ -15,8 +15,6 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find_by_auth_token(session[:auth_token])
     else
       @current_user = nil
-      # flash[:info] = "No User Found"
-
     end
   end
 

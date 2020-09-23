@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title>Inventory 2</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  
-</head>
-
-<body>
-  <div class="container-fluid ">
-    <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %> alert-dismissible" role="alert">
-
-      <p class="text-<%= key %>"><%= value %></p>
+  <head>
+    <title>Inventory 2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+  <body>
+    <div class="container-fluid ">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %> alert-dismissible" role="alert">
+          <p class="text-<%= key %>"><%= value %></p>
+        </div>
+      <% end %>
+      <div class="row justify-content-center">
+        <h1>Welcome to The Inventory Management</h1>
+      </div>
+      <% if current_user.present? %>
+        <div>Welcome <%= current_user.name.html_safe %></div>
+      <% else %>
+        <div class="row justify-content-center">
+          <a href="/auth/google_oauth2" class="btn btn-light text-primary">Sign In With Google</a>
+        </div>
+      <% end %>
     </div>
-
-    <% end %>
-    <h1>Welcome to The Inventory Management</h1>
-    <% if current_user.present? %>
-    <div>Welcome <%= current_user.name.html_safe %></div>
-    <% else %>
-    <div class="row justify-content-center">
-      <a href="/auth/google_oauth2" class="btn btn-light text-primary">Sign in with Google</a>
-    </div>
-    <% end %>
-  </div>
-
-</body>
-
+  </body>
 </html>

@@ -1,5 +1,7 @@
 class StoragesController < ApplicationController
   before_action :set_storage, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :check_user_is_admin
 
   # GET /storages
   # GET /storages.json
