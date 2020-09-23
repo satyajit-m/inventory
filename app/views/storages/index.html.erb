@@ -5,6 +5,7 @@
     <tr>
       <th scope="col">Item</th>
       <th scope="col">Qty</th>
+      <th scope="col">Assigned</th>
       <th scope="col">Min buffer</th>
       <th scope="col">Max buffer</th>
       <th scope="col">Show</th>
@@ -17,10 +18,11 @@
       <tr>
         <td><%= storage.item.name %></td>
         <td><%= storage.qty %></td>
+        <td><%= storage.item.users.length %></td>
         <td><%= storage.min_buffer %></td>
         <td><%= storage.max_buffer %></td>
         <td><%= link_to fa_icon("eye"), storage, class: "btn btn-primary" %></td>
-        <td><%= link_to fa_icon("edit"), edit_storage_path(storage), class: "btn btn-info" %></td>
+        <td><%= link_to fa_icon("edit"), edit_storage_path(storage), class: "btn btn-secondary" %></td>
         <td><%= button_to(storage, method: :delete, class: "btn btn-danger") do %>
             <i class="fa fa-trash" aria-hidden="true"></i>
           </td>
@@ -30,4 +32,4 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'New Storage', new_storage_path %>
+<%= link_to "New Storage", new_storage_path %>

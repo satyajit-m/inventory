@@ -51,5 +51,9 @@ $(document).on("turbolinks:load", function () {
     $(".side-5").addClass("active");
   } else if (page == "storages" || page1 == "storages") {
     $(".side-6").addClass("active");
+  } else if (page == "notifications" || page1 == "notifications") {
+    $(".side-7").addClass("active");
+  } else if (page == "issues" || page1 == "issues") {
+    $(".side-8").addClass("active");
   }
 });

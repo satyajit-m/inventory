@@ -1,0 +1,32 @@
+<%= form_with(model: issue, local: true) do |form| %>
+  <div class="card-body">
+    <% if issue.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+        <ul>
+          <% issue.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= form.label :user, class: "font-weight-bold" %>
+      <%# <%= form.text_field :user_id, value: current_user.id, class: "disabled-input"  %>
+      <p><%= current_user.name %></p>
+    </div>
+    <div class="form-group">
+      <%= form.label :item%>
+      <%= form.collection_select(:item_id, current_user.items.uniq, :id , :name, { prompt: "Select an Item" }, { required: true, class: "form-control" })%>
+    </div>
+    <div class="form-group">
+      <%= form.label :details %>
+      <%= form.text_area :details, class: "form-control" %>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="actions">
+      <%= form.submit nil, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

@@ -19,7 +19,7 @@
       <th scope="row"><%= category.id %></th>
       <td><%= category.name %></td>
       <td><%= link_to fa_icon("eye"), category, class: "btn btn-primary" %></td>
-      <td><%= link_to fa_icon("pencil"), edit_category_path(category), class: "btn btn-info" %></td>
+      <td><%= link_to fa_icon("edit"), edit_category_path(category), class: "btn btn-secondary" %></td>
       <td><%= button_to(category, method: :delete, class: "btn btn-danger") do %>
         <i class="fa fa-trash" aria-hidden="true"></i>
       </td>

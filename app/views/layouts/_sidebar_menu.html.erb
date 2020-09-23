@@ -15,6 +15,14 @@
   <% if current_user.admin %>
     <%= link_to 'Storage', storages_path, class: "side-6" %>
   <% end %>
-  <%= link_to 'Notification', items_path %>
+  <%= link_to notifications_path, class: "side-7 row" do %>
+    <div class="col-6">
+      Notifications
+    </div>
+    <div class="col-6">
+      <%= notification_count %>
+    </div>
+  <% end %>
+  <%= link_to 'Issues', issues_path, class: "side-8" %>
   <%= link_to 'LogOut', logout_path %>
 </div>

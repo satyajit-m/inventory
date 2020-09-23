@@ -1,0 +1,28 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %> alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= value %>
+   </div>
+<% end %><p>
+  <strong>User Id:</strong>
+  <%= @issue.user_id %>
+</p>
+<p>
+  <strong>Issue By :</strong>
+  <%= @issue.user.name %>
+</p>
+<p>
+  <strong>Issue id:</strong>
+  <%= @issue.id %>
+</p>
+<p>
+  <strong>Issue Details:</strong>
+  <%= @issue.details %>
+</p>
+<% if !@issue.resolved && @current_user.admin %>
+  <p>
+    <strong>Resolve Issue</strong>
+    <td><%= link_to fa_icon("check"), mark_resolved_issue_path, method: :patch, class: "btn btn-success", data: { confirm: t('issue.confirm_resolved') } %></td>
+  </p>
+<% end %>
+<%= link_to 'Back', issues_path %>

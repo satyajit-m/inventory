@@ -1,0 +1,60 @@
+<div class="row">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissible" role="alert">
+      <p class="text-<%= key %>"><%= value %></p>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h1>Pending Issues</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>User</th>
+          <th>Item</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% pending_issues.each do |issue| %>
+          <tr>
+            <td><%= issue.id %></td>
+            <td><%= issue.user.name %></td>
+            <td><%= issue.item.name %></td>
+            <td><%= link_to fa_icon("eye"), issue, class: "btn btn-primary" %></td>
+            <td><%= link_to fa_icon("trash"), issue, method: :delete, class: "btn btn-danger", data: { confirm: t('issue.confirm_delete') } if current_user.admin %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <h1>Resolved Issues</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>User</th>
+          <th>Item</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% resolved_issues.each do |issue| %>
+          <tr>
+            <td><%= issue.id %></td>
+            <td><%= issue.user.name %></td>
+            <td><%= issue.item.name %></td>
+            <td><%= link_to fa_icon("eye"), issue, class: "btn btn-primary" %></td>
+            <td><%= link_to fa_icon("trash"), issue, method: :delete, class: "btn btn-danger", data: { confirm: t('issue.delete') } if current_user.admin %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% if !User.current.admin %>
+  <%= link_to 'New Issue', new_issue_path %>
+<% end %>

@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+ <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %> alert-dismissible" role="alert">
+    <p class="text-<%= key %>"><%= value %></p>
+  </div>
+<% end %>
 <h1>Items</h1>
 <table class="table table-striped table-bordered">
   <thead>
@@ -8,7 +12,8 @@
       <th scope="col">Brand</th>
       <th scope="col">Category</th>
       <th scope="col">Status</th>
-      <th scope="col">Notes</th>
+      <th scope="col">Assign User</th>
+      <th scope="col">Associated User</th>
       <th scope="col">Show</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
@@ -22,9 +27,16 @@
         <td><%= item.brand.name %></td>
         <td><%= item.category.name %></td>
         <td><%= item.status %></td>
-        <td><%= item.notes %></td>
+        <td><% if item.storage.present? %>
+            <%= link_to fa_icon("user-plus"), assign_item_path(item), class: "btn btn-info" %>
+          <%end%></td>
+        <td>
+          <ul><% item.users.each do |user| %>
+              <li><%= user.name %></li>
+            <% end %></ul>
+        </td>
         <td><%= link_to fa_icon("eye"), item, class: "btn btn-primary" %></td>
-        <td><%= link_to fa_icon("edit"), edit_item_path(item), class: "btn btn-info" %></td>
+        <td><%= link_to fa_icon("edit"), edit_item_path(item), class: "btn btn-secondary" %></td>
         <td><%=button_to(item, method: :delete, class: "btn btn-danger") do  %>
             <i class="fa fa-trash" aria-hidden="true"></i>
           </td>
