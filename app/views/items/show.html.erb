@@ -2,7 +2,7 @@
   <div class="alert alert-<%= key %> alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= value %>
-   </div>
+  </div>
 <% end %>
 <p>
   <strong>Name:</strong>
@@ -10,25 +10,19 @@
 </p>
 <p>
   <strong>Brand:</strong>
-  <%= @item.brand_id %>
+  <%= @item.brand.name %>
 </p>
 <p>
   <strong>Category:</strong>
-  <%= @item.category_id %>
+  <%= @item.category.name %>
 </p>
 <p>
   <strong>Status:</strong>
-  <%= @item.status %>
+  <%= item_status(@item.status) %>
 </p>
 <p>
   <strong>Associated Users:</strong>
-  <ul><% @item.users.each do |user| %>
-      <li>
-        <div class="user"><%= user.name %>
-          <%= link_to fa_icon("times"), remove_user_item_path(@item, user: user), method: :patch, class: "btn", data: { confirm: 'Remove User?' } %>
-        </div>
-      </li>
-    <% end %></ul>
+  <p><%= format_user(@item.user) %></p>
 </p>
 <p>
   <strong>Notes:</strong>
@@ -38,5 +32,5 @@
   <strong>Document:</strong>
   <%= link_to file_name(@item.doc_url), @item.doc_url, target: :_blank %>
 </p>
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= edit_text_link(edit_item_path(@item)) %>
+<%= back_text_link(items_path) %>

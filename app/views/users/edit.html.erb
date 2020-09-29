@@ -1,7 +1,7 @@
 <div class="card">
   <h1 class="card-header text-dark bg-light">Editing User</h1>
 
-  <%= render 'form', user: @user %>
+  <%= render "form", user: @user %>
 </div>
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= show_text_link(@user) %>
+<%= back_text_link(users_path) %>

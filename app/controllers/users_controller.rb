@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :check_user_is_admin
-
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  before_action :check_user_is_admin, only: %i[index destroy]
+  before_action :current_user_access, only: %i[show edit update]
 
   # GET /users
   # GET /users.json
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, flash: { success: t("user.create_success") } }
@@ -43,7 +42,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, flash: { success: t("user.create_success") } }
+        format.html { redirect_to @user, flash: { success: t("user.update_success") } }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -57,7 +56,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, flash: { success: t("user.create_success") } }
+      format.html { redirect_to users_url, flash: { success: t("user.delete_success") } }
       format.json { head :no_content }
     end
   end
@@ -66,11 +65,17 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) 
   end
 
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:name, :email, :status, :admin, :auth_token)
+  end
+
+  def current_user_access
+    p current_user
+    p @user
+    redirect_to root_path, flash: { warning: t("application.only_admin") } if current_user != @user && !current_user.admin
   end
 end

@@ -1,19 +1,16 @@
 <div class="sidebar">
-  <%= link_to 'Home', root_path, class: "side-1" %>
+  <%= link_to "Home", root_path, class: "side-1" %>
+  <%= 
+    if current_user.admin 
+     link_to "Users", users_path, class: "side-2" 
+     else
+      link_to "My Profile", current_user, class: "side-2" 
+   end %>
+  <%= link_to "Brands", brands_path, class: "side-3"  %>
+  <%= link_to "Categories", categories_path, class: "side-4" %>
+  <%= link_to "Items", items_path, class: "side-5" %>
   <% if current_user.admin %>
-    <%= link_to 'Users', users_path, class: "side-2" %>
-  <% end %>
-  <% if current_user.admin %>
-    <%= link_to 'Brand', brands_path, class: "side-3"  %>
-  <% end %>
-  <% if current_user.admin %>
-    <%= link_to 'Categories', categories_path, class: "side-4" %>
-  <% end %>
-  <% if current_user.admin %>
-    <%= link_to 'Items', items_path, class: "side-5" %>
-  <% end %>
-  <% if current_user.admin %>
-    <%= link_to 'Storage', storages_path, class: "side-6" %>
+    <%= link_to "Storage", storage_categories_path, class: "side-6" %>
   <% end %>
   <%= link_to notifications_path, class: "side-7 row" do %>
     <div class="col-6">
@@ -23,6 +20,6 @@
       <%= notification_count %>
     </div>
   <% end %>
-  <%= link_to 'Issues', issues_path, class: "side-8" %>
-  <%= link_to 'LogOut', logout_path %>
+  <%= link_to "Issues", issues_path, class: "side-8" %>
+  <%= link_to "LogOut", logout_path, data: { confirm: "Are you sure to logout?" }  %>
 </div>

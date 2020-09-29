@@ -1,34 +1,33 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Categories</h1>
-
-
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">Id</th>
       <th scope="col">Name</th>
-      <th scope="col">Show</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
+      <% if current_user.admin %>
+        <th scope="col">Min Qty</th>
+        <th scope="col">Buffer</th>
+        <th scope="col">Show</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
     <% @categories.each do |category| %>
-    <tr>
-      <th scope="row"><%= category.id %></th>
-      <td><%= category.name %></td>
-      <td><%= link_to fa_icon("eye"), category, class: "btn btn-primary" %></td>
-      <td><%= link_to fa_icon("edit"), edit_category_path(category), class: "btn btn-secondary" %></td>
-      <td><%= button_to(category, method: :delete, class: "btn btn-danger") do %>
-        <i class="fa fa-trash" aria-hidden="true"></i>
-      </td>
-      <% end %>
-
-    </tr>
+      <tr>
+        <th scope="row"><%= category.id %></th>
+        <td><%= category.name %></td>
+        <% if current_user.admin %>
+          <td><%= category.min_qty %></td>
+          <td><%= category.buffer %></td>
+          <td><%= show_icon_link(category)  %></td>
+          <td><%= edit_icon_link(edit_category_path(category)) %></td>
+          <td><%= delete_icon_link(category) %></td>
+        <% end %>
+      </tr>
     <% end %>
   </tbody>
 </table>
-
-
-<%= link_to 'New Category', new_category_path %>
+<%= new_text_link(new_category_path)  if current_user.admin %>

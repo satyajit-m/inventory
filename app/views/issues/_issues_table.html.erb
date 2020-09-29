@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>User</th>
+      <th>Item</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% issue_type.each do |issue| %>
+      <tr>
+        <td><%= issue.id %></td>
+        <td><%= issue.user.name %></td>
+        <td><%= issue.item.name %></td>
+        <td><%= show_link(issue)  %></td>
+        <td><%= delete_link(issue) if current_user.admin %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

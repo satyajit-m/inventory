@@ -1,5 +1,5 @@
 <div class="card-body">
-  <%= form_for @item, :url => url_for(:controller => 'items', :action => 'assign_user') do |form| %>
+  <%= form_for @item, :url => url_for(:controller => "items", :action => "assign_user") do |form| %>
     <div class="form-group">
       <%= form.label :name, class: "font-weight-bold" %>
       <p>
@@ -12,7 +12,7 @@
 
     </div>
     <div class="actions">
-      <%= form.submit "Add Employee", class: 'btn btn-primary' %>
+      <%= form.submit "Add Employee", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>

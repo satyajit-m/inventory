@@ -2,7 +2,7 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 
-const { flash_info } = require("./any");
+const { flash_info } = require("./flash_alert");
 
 // that code so it'll be compiled.
 
@@ -20,6 +20,7 @@ const { flash_info } = require("./any");
 //= require bootstrap-sprockets
 //= require any
 //= require sidebar
+//= require item
 //= require_tree .
 //= require turbolinks
 
@@ -28,6 +29,7 @@ require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
 require("packs/sidebar");
+require("packs/item");
 flash_info();
 import "bootstrap/dist/js/bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
@@ -45,11 +47,11 @@ $(document).on("turbolinks:load", function () {
     $(".side-2").addClass("active");
   } else if (page == "brands" || page1 == "brands") {
     $(".side-3").addClass("active");
-  } else if (page == "categories" || page1 == "categories") {
+  } else if ((page == "categories" || page1 == "categories") && !page.includes("storage")) {
     $(".side-4").addClass("active");
   } else if (page == "items" || page1 == "items") {
-    $(".side-5").addClass("active");
-  } else if (page == "storages" || page1 == "storages") {
+    $(".side-5").addClass("active");  
+  } else if (page.includes("storage")) {
     $(".side-6").addClass("active");
   } else if (page == "notifications" || page1 == "notifications") {
     $(".side-7").addClass("active");

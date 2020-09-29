@@ -8,6 +8,14 @@
   <strong>Name:</strong>
   <%= @category.name %>
 </p>
+<p>
+  <strong>Min Quantity:</strong>
+  <%= @category.min_qty %>
+</p>
+<p>
+  <strong>Buffer:</strong>
+  <%= @category.buffer %>
+</p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= edit_text_link(edit_category_path(@category)) %>
+<%= back_text_link(categories_path) %>

@@ -11,7 +11,16 @@
       </div>
     <% end %>
     <div class="form-group">
-      <%= form.text_field :name, required: true, class: "form-control", placeholder: "Enter Brand Name" %>
+      <%= form.label :name, "Item Name", class: "font-weight-bold" %>
+      <%= form.text_field :name, required: true, class: "form-control", placeholder: "Enter Category Name" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :min_qty, "Minimum Quantity", class: "font-weight-bold" %>
+      <%= form.number_field :min_qty, required: true, class: "form-control", placeholder: "Enter Minimum Quantity" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :buffer, "Buffer Quantity", class: "font-weight-bold" %>
+      <%= form.number_field :buffer, required: true, class: "form-control", placeholder: "Enter Buffer Quantity" %>
     </div>
   </div>
   <div class="card-footer">

@@ -13,6 +13,7 @@
       <th scope="col">Category</th>
       <th scope="col">Status</th>
       <% if current_user.admin %>
+        <th scope="col">Assign User</th>
         <th scope="col">Associated User</th>
         <th scope="col">Show</th>
         <th scope="col">Edit</th>
@@ -29,15 +30,25 @@
         <td><%= item.category.name %></td>
         <td><%= item_status(item.status) %></td>
         <% if current_user.admin %>
-          <td><%= format_user(item.user)  %></td>
-          <td><%= show_icon_link(item)  %></td>
-          <td><%= edit_icon_link(edit_item_path(item)) %></td>
-          <td><%= delete_icon_link(item) %></td>
+          <td>
+            <% if item.storage.present? %>
+              <%= link_to fa_icon("user-plus"), assign_item_path(item), class: "btn btn-info" %>
+            <%end%>
+          </td>
+          <td>
+            <ul>
+              <% item.users.each do |user| %>
+                <li><%= user.name %></li>
+              <% end %>
+            </ul>
+          </td>
+          <td><%= show_link(item)  %></td>
+          <td><%= edit_link(edit_item_path(item)) %></td>
+          <td><%= delete_link(item) %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= new_text_link(new_item_path) if current_user.admin %>
-  
+<%= link_to "New Item", new_item_path if current_user.admin %>

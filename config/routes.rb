@@ -1,24 +1,21 @@
 Rails.application.routes.draw do
   resources :brands
-  resources :categories
+  resources :categories do
+    collection do
+      get 'storage'
+    end
+  end
   resources :issues do
     member do
       patch 'mark_resolved'
     end
   end
-  resources :items do
-    member do
-      get 'assign', to: 'items#assign'
-      patch 'assign', to: 'items#assign_user'
-      patch 'remove_user'
-    end
-  end
+  resources :items
   resources :notifications do
     collection do
       post :mark_as_read
     end
   end
-  resources :storages
   resources :users
 
   root 'welcome#index'

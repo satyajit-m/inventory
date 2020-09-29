@@ -5,14 +5,16 @@ class Notification < ApplicationRecord
 
   scope :unread, -> { where(read_at: nil) }
 
-  def self.low_buffer(storage, item)
-    type = storage.qty < storage.min_buffer ? "danger" : "warning"
+  def self.low_items(item, priority)
+    p item
+    type = priority == "high" ? "danger" : "warning"
+    msg =  priority == "high" ? "Item in category #{item.category.name} is too low. Add more." : "Item in category #{item.category.name} is low."
     User.where(admin: true).uniq.each do |user|
       Notification.create(
         receiver: user,
         sender: User.current,
-        message: "Item #{item.name} is low. Only #{storage.qty} left",
-        notifiable: storage,
+        message: msg,
+        notifiable: item,
         priority: type
       )
     end
@@ -39,4 +41,5 @@ class Notification < ApplicationRecord
       priority: "success"
     )
   end
+
 end

@@ -24,16 +24,20 @@
     </div>
     <div class="form-group">
       <%= form.label :status, class: "font-weight-bold" %>
-      <div class="row">
-        <div class="col-md-3">
-          <%= form.radio_button :status, false, class: "" %>
+      <div class="row" >
+        <div class="col">
+          <%= form.radio_button :status, false, class: "item-status" %>
           <%= form.label :status, "InActive" %>
         </div>
         <div class="col">
-          <%= form.radio_button :status, true, class: "" %>
+          <%= form.radio_button :status, true, class: "item-status" %>
           <%= form.label :status, "Active" %>
         </div>
       </div>
+    </div>
+    <div class="form-group employee-select <%= "d-none" if !@item.status %>">
+      <%= form.label "Employee", class: "font-weight-bold" %>
+      <%= form.collection_select(:user_id, list_users, :id, :name, { prompt: "Select an Employee",  selected: @item.user_id, include_blank: "None" }, { required: false, class: "form-control", id: "item_user_select" })%>
     </div>
     <div class="form-group">
       <%= form.label :notes, "Notes", class: "font-weight-bold" %>

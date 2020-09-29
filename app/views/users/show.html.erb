@@ -2,32 +2,31 @@
   <div class="alert alert-<%= key %> alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= value %>
-   </div>
+  </div>
 <% end %>
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
-
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-
 <p>
   <strong>Status:</strong>
-  <%= @user.status %>
+  <%= check_status(@user.status) %>
 </p>
-
 <p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
+  <strong>User Type:</strong>
+  <%= check_user(@user.admin) %>
 </p>
-
 <p>
-  <strong>Auth token:</strong>
-  <%= @user.auth_token %>
+  <strong>My Items:</strong>
+  <% @user.items.each do |item|%>
+    <ol>
+      <li> <%= item.name %></li>
+    </ol>
+  <% end %>
 </p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= edit_text_link(edit_user_path(@user)) %>
+<%= back_text_link(users_path) %>

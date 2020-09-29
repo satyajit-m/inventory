@@ -1,0 +1,34 @@
+<h1>Storage</h1>
+<div class="row">
+  <div class="col-md-6">
+  <label class="font-weight-bold">Category</label>
+    <%= form_tag storage_categories_path, :method => "get" do %>
+      <%= select_tag(:id, options_for_select(Category.order(:name).pluck(:name, :id) ,:selected =>params[:id]), onchange: "this.form.submit();", class: "form-control custom-select" , include_blank: "Select a Category"  )%>
+    <% end %>
+  </div>
+</div>
+<% if @category.present? %>
+  <div class=" row m-4 justify-content-center ">
+    <div class="col-2 d-inline p-2 bg-info text-white">Total Items = <%= @category.items.count %></div>
+    <div class="col-2 d-inline p-2 bg-danger text-white">Minimum Quantity = <%= @category.min_qty %></div>
+    <div class="col-2 d-inline p-2 bg-warning text-white">Buffer = <%= @category.buffer %></div>
+  </div>
+  <div class="row">
+    <table class="table table-bordered mx-3">
+      <tr class="bg-light">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Created On</th>
+      </tr>
+      <% @category.items.each do |item| %>
+        <tr>
+          <td><%= item.id %></td>
+          <td> <%= item.name %></td>
+          <td><%= item.brand.name %></td>
+          <td><%= item.created_at %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>

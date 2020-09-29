@@ -8,6 +8,5 @@
   <strong>Name:</strong>
   <%= @brand.name %>
 </p>
-
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
-<%= link_to 'Back', brands_path %>
+<%= edit_text_link(edit_user_path(@brand)) %>
+<%= back_text_link(brands_path) %>

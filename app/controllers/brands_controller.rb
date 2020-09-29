@@ -1,7 +1,7 @@
 class BrandsController < ApplicationController
   before_action :set_brand, only: %i[show edit update destroy]
   before_action :authenticate_user!
-  before_action :check_user_is_admin
+  before_action :check_user_is_admin, except: :index
 
   def index
     @brands = Brand.all

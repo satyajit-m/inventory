@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  has_and_belongs_to_many :items
+  has_many :items, dependent: :nullify
 
-  has_many :notifications, foreign_key: :receiver_id
-  has_many :issues
+  has_many :notifications, foreign_key: :receiver_id, dependent: :destroy
+  has_many :issues, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_NAME_REGEX = /\A[^0-9`!@#\$%\^&*+_=]+\z/.freeze

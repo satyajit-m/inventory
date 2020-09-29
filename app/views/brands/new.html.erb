@@ -1,7 +1,7 @@
 <div class="card">
   <h1 class="card-header text-dark bg-light">New Brand</h1>
 
-  <%= render 'form', brand: @brand %>
+  <%= render "form", brand: @brand %>
 </div>
 
-<%= link_to 'Back', brands_path %>
+<%= back_text_link(brands_path) %>

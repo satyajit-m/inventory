@@ -1,8 +1,8 @@
 <div class="card">
   <h1 class="card-header text-dark bg-light>Editing Category</h1>
 
-  <%= render 'form', category: @category %>
+  <%= render "form", category: @category %>
 </div>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<%= show_text_link(@category) %>
+<%= back_text_link(categories_path) %>

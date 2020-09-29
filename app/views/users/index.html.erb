@@ -6,8 +6,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Status</th>
-      <th>user Type</th>
-      <th>Items</th>
+      <th>User Type</th>
       <th>Show</th>
       <th>Edit</th>
       <th>Delete</th>
@@ -20,17 +19,12 @@
         <td><%= user.email %></td>
         <td><%= check_status(user.status) %></td>
         <td><%= check_user(user.admin) %></td>
-        <td>
-          <ul><% user.items.each do |item|%>
-              <li> <%= item.name %></li>
-            <% end %></ul>
-        </td>
-        <td><%= link_to fa_icon("eye"), user, class: "btn btn-primary" %></td>
-        <td><%= link_to fa_icon("edit"), edit_user_path(user), class: "btn btn-secondary" %></td>
-        <td><%= link_to fa_icon("trash"), user, method: :user, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
+        <td><%= show_icon_link(user)  %></td>
+        <td><%= edit_icon_link(edit_user_path(user)) %></td>
+        <td><%= delete_icon_link(user) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to 'New User', new_user_path %>
+<%= new_text_link(new_user_path) %>

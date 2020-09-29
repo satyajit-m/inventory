@@ -19,12 +19,14 @@
     <div class="form-group row">
       <div class="col ">
         <%= form.label "Active?" %>
-        <%= form.check_box :status, class: "form-control", placeholder: "Enter Name" %>
+        <%= form.check_box :status, class: "form-control" %>
       </div>
-      <div class="col">
-        <%= form.label :admin %>
-        <%= form.check_box :admin, class: "form-control", placeholder: "Enter Name" %>
-      </div>
+      <% if current_user.admin %>
+        <div class="col">
+          <%= form.label :admin %>
+          <%= form.check_box :admin, class: "form-control" %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="card-footer">

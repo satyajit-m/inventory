@@ -1,14 +1,13 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: %i[show edit update destroy storage]
   before_action :authenticate_user!
-  before_action :check_user_is_admin
+  before_action :check_user_is_admin, except: :index
 
   def index
     @categories = Category.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @category = Category.new
@@ -51,12 +50,14 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def storage;  end
+
   private
   def set_category
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:id]) if params[:id].present?
   end
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :min_qty, :buffer, :id)
   end
 end

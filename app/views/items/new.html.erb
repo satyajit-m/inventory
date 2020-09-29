@@ -3,10 +3,8 @@
   <div class="col-12 col-md-10 ">
     <div class="card ">
       <h1 class="card-header text-dark bg-light">New Item</h1>
-
-      <%= render 'form', item: @item %>
+      <%= render "form", item: @item %>
     </div>
-
-    <%= link_to 'Back', items_path %>
+    <%= back_text_link(items_path) %>
   </div>
 </div>

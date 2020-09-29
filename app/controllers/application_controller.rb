@@ -21,9 +21,8 @@ class ApplicationController < ActionController::Base
   def set_current_user
     User.current = current_user
   end
-  
-  def check_user_is_admin
-    redirect_to root_path, flash: { warning: t("application.only_admin") } unless current_user.admin
-  end
 
+  def check_user_is_admin
+    redirect_to root_path, flash: { warning: t("application.only_admin") } if !current_user.admin
+  end
 end

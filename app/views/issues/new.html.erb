@@ -1,7 +1,7 @@
 <div class="card">
   <h1 class="card-header text-dark bg-light">New Issue</h1>
 
-<%= render 'form', issue: @issue %>
+<%= render "form", issue: @issue %>
 </div>
 
-<%= link_to 'Back', issues_path %>
+<%= back_text_link(issues_path) %>

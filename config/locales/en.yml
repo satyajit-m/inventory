@@ -33,6 +33,7 @@ en:
   application:
     login_required: "You must login to view"
     only_admin: "You are not an ADMIN. Only Admins are allowed"
+    delete: "Are you sure you want to delete?"
   brand:
     create_success: "Brand was Created Successfully"
     delete_success: "Brand was Deleted Successfully"
@@ -60,7 +61,7 @@ en:
     remove_user_unsucces: "User cannot be removed"
     stock_empty: "Stock is Empty"
     update_success: "Item was Updated Successfully"
-    user_present: "Cannot Remove Item which has associated Users"    
+    user_present: "Cannot Remove Item which has associated Users"
   session:
     logout_success: "Log Out Success"
     signin_success: "Sign In Success"
@@ -69,7 +70,7 @@ en:
     create_success: "Storage was Created Successfully"
     delete_success: "Storage was Deleted Successfully"
     update_success: "Storage was Updated Successfully"
-
-  
-  
-
+  user:
+    create_success: "User was Created Successfully"
+    delete_success: "User was Deleted Successfully"
+    update_success: "User was Updated Successfully"
