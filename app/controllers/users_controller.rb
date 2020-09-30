@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   before_action :authenticate_user!
-  before_action :check_user_is_admin, only: %i[index destroy]
+  before_action :check_user_is_admin, only: %i[index new create destroy]
   before_action :current_user_access, only: %i[show edit update]
 
   # GET /users
@@ -74,8 +74,6 @@ class UsersController < ApplicationController
   end
 
   def current_user_access
-    p current_user
-    p @user
     redirect_to root_path, flash: { warning: t("application.only_admin") } if current_user != @user && !current_user.admin
   end
 end

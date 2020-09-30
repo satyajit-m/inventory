@@ -18,7 +18,6 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, flash: { success: t("category.create_success") } }

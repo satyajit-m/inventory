@@ -26,7 +26,7 @@
             <th scope="row"><%= brand.id %></th>
             <td><%= brand.name %></td>
             <% if current_user.admin %>
-              <td><%= show_icon_link(brand)  %></td>
+              <td><%= show_icon_link(brand) %></td>
               <td><%= edit_icon_link(edit_brand_path(brand)) %></td>
               <td><%= delete_icon_link(brand) %></td>
             <% end %>
