@@ -3,6 +3,14 @@ class Category < ApplicationRecord
 
   validates_uniqueness_of :name, case_sensitive: false
   validates :name, presence: true
-  validates :min_qty, presence: true
-  validates :buffer, presence: true
+  validates :min_qty, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :buffer, presence: true, numericality: { only_integer: true, greater_than: 0 }
+
+  validate :min_qty_less_than_buffer
+
+  def min_qty_less_than_buffer
+    if min_qty > buffer
+      errors.add(:min_qty, "cant be greater than Buffer")
+    end
+  end
 end

@@ -31,7 +31,7 @@ module ApplicationHelper
     link_to "Edit", path, class: "btn btn-primary m-2"
   end
 
-  def back_text_link(path)
+  def back_text_link
     link_to 'Back', request.referrer, class: "btn btn-secondary m-2"
   end
 end

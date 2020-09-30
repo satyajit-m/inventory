@@ -13,8 +13,8 @@
         <td><%= issue.id %></td>
         <td><%= issue.user.name %></td>
         <td><%= issue.item.name %></td>
-        <td><%= show_link(issue)  %></td>
-        <td><%= delete_link(issue) if current_user.admin %></td>
+        <td><%= show_icon_link(issue)  %></td>
+        <td><%= delete_icon_link(issue) if current_user.admin %></td>
       </tr>
     <% end %>
   </tbody>
