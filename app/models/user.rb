@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   validates :email, format: { with: VALID_EMAIL_REGEX }
   validates_format_of :name, { with: VALID_NAME_REGEX }
+  validates_uniqueness_of :email, case_sensitive: false
 
   def self.current
     Thread.current[:user]

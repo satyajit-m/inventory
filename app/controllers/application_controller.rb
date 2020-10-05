@@ -5,9 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_current_user
 
   def authenticate_user!
-    return if current_user.present?
-
-    redirect_to  root_path, flash: { danger: t("application.login_required") }
+    redirect_to root_path, flash: { danger: t("application.login_required") } unless @current_user.present?
   end
 
   def current_user
@@ -23,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user_is_admin
-    redirect_to root_path, flash: { warning: t("application.only_admin") } if !current_user.admin
+    redirect_to root_path, flash: { warning: t("application.only_admin") } unless current_user.admin
   end
 end

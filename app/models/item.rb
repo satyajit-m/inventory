@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :user, optional: true
 
-  has_one :issues
+  has_one :issue, dependent: :destroy
 
   validates_uniqueness_of :name, case_sensitive: false
   validates :name, presence: true, allow_blank: false

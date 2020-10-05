@@ -13,8 +13,7 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @category = Category.new(category_params)
@@ -43,15 +42,15 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
+
     respond_to do |format|
       format.html { redirect_to categories_url, flash: { success: t("category.delete_success") } }
       format.json { head :no_content }
     end
   end
 
-  def storage;  end
-
   private
+
   def set_category
     @category = Category.find(params[:id]) if params[:id].present?
   end

@@ -12,6 +12,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:auth_token] = nil
-    redirect_to root_path, flash: { info: t("session.logout_success") }
+    redirect_to root_path, flash: { success: t("session.logout_success") }
   end
 end

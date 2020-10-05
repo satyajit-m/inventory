@@ -4,9 +4,9 @@ class Notification < ApplicationRecord
   belongs_to :notifiable, polymorphic: true
 
   scope :unread, -> { where(read_at: nil) }
+  scope :sorted, -> { order(created_at: :DESC).where(receiver_id: User.current) }
 
   def self.low_items(item, priority)
-    p item
     type = priority == "high" ? "danger" : "warning"
     msg =  priority == "high" ? "Item in category #{item.category.name} is too low. Add more." : "Item in category #{item.category.name} is low."
     User.where(admin: true).uniq.each do |user|
@@ -41,5 +41,4 @@ class Notification < ApplicationRecord
       priority: "success"
     )
   end
-
 end

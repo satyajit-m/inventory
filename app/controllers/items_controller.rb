@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[show edit update destroy assign_user remove_user]
+  before_action :set_item, only: %i[show edit update destroy assign_user remove_user created]
   before_action :authenticate_user!
   before_action :check_user_is_admin, except: :index
 
@@ -20,8 +20,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
         if @item.save
           Item.check_qty(@item)
-          format.html { redirect_to @item, flash: { success: t("item.create_success") } }
-          format.json { render :show, status: :created, location: @item }
+          format.html { redirect_to created_item_path(@item), flash: { success: t("item.create_success") } }
         else
           format.html { render :new }
           format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -54,6 +53,8 @@ class ItemsController < ApplicationController
       end
     end
   end
+
+  def created; end
 
   private
 
