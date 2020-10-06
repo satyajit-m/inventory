@@ -2,11 +2,11 @@
 <div class="row">
   <div class="col-md-6">
     <h1>Pending Issues</h1>
-    <%= render "issues_table", issue_type: pending_issues %>
+    <%= render "issues_table", issue_type: pending_issues(@issues) %>
   </div>
   <div class="col-md-6">
     <h1>Resolved Issues</h1>
-    <%= render "issues_table", issue_type: resolved_issues %>
+    <%= render "issues_table", issue_type: resolved_issues(@issues) %>
   </div>
 </div>
 <div><%= new_text_link(new_issue_path) if !current_user.admin %></div>

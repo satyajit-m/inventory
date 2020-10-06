@@ -8,7 +8,10 @@ class Notification < ApplicationRecord
 
   def self.low_items(item, priority)
     type = priority == "high" ? "danger" : "warning"
-    msg =  priority == "high" ? "Item in category #{item.category.name} is too low. Add more." : "Item in category #{item.category.name} is low."
+    msg =  priority == "high" ?
+           "Item in category #{item.category.name} is too low. Add more." :
+           "Item in category #{item.category.name} is low."
+
     User.where(admin: true).uniq.each do |user|
       Notification.create(
         receiver: user,

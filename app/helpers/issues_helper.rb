@@ -1,10 +1,9 @@
 module IssuesHelper
-  def pending_issues
-    Issue.where(resolved: false)
+  def pending_issues(issues)
+    issues.where(resolved: false)
   end
 
-  def resolved_issues
-    Issue.where(resolved: true)
-  end
-  
+  def resolved_issues(issues)
+    issues.where(resolved: true)
+  end  
 end

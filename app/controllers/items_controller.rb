@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+
     respond_to do |format|
         if @item.save
           Item.check_qty(@item)
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
   def update
     new_item = item_params
     new_item[:user_id] = nil if new_item[:status] == "false"
+
     respond_to do |format|
       if @item.update(new_item)
         format.html { redirect_to @item, flash: { success: t("item.update_success") } }
@@ -47,6 +49,7 @@ class ItemsController < ApplicationController
       redirect_to items_path, flash: { warning: t("item.user_present") }
     else
       @item.destroy
+
       respond_to do |format|
         format.html { redirect_to items_url, flash: { success: t("item.delete_success") } }
         format.json { head :no_content }
@@ -65,5 +68,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :brand_id, :category_id, :user_id, :status, :notes, :doc)
   end
-
 end

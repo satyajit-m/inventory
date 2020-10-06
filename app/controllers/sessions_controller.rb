@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def create
     @user = User.from_omniauth(request.env["omniauth.auth"])
+
     if @user.present?
       User.generate_auth_token(:auth_token, @user)
       session[:auth_token] = @user.auth_token

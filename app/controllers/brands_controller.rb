@@ -1,6 +1,6 @@
 class BrandsController < ApplicationController
-  before_action :set_brand, only: %i[show edit update destroy]
   before_action :authenticate_user!
+  before_action :set_brand, only: %i[show edit update destroy]
   before_action :check_user_is_admin, except: :index
 
   def index
@@ -13,11 +13,11 @@ class BrandsController < ApplicationController
     @brand = Brand.new
   end
 
-  # GET /brands/1/edit
   def edit; end
 
   def create
     @brand = Brand.new(brand_params)
+
     respond_to do |format|
       if @brand.save
         format.html { redirect_to @brand, flash: { success: t("brand.create_success") } }
@@ -43,6 +43,7 @@ class BrandsController < ApplicationController
 
   def destroy
     @brand.destroy
+
     respond_to do |format|
       format.html { redirect_to brands_url, flash: { success: t("brand.delete_success") } }
       format.json { head :no_content }

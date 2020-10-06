@@ -9,8 +9,6 @@ class Category < ApplicationRecord
   validate :min_qty_less_than_buffer
 
   def min_qty_less_than_buffer
-    if min_qty > buffer
-      errors.add(:min_qty, "cant be greater than Buffer")
-    end
+    errors.add(:min_qty, "cant be greater than Buffer") if min_qty > buffer
   end
 end

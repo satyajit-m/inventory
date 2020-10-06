@@ -17,7 +17,7 @@
     </div>
     <div class="form-group">
       <%= form.label :item%>
-      <%= form.collection_select(:item_id, current_user.items.uniq, :id , :name, { prompt: "Select an Item" }, { required: true, class: "form-control" })%>
+      <%= form.collection_select(:item_id, current_user.items, :id , :name, { prompt: "Select an Item" }, { required: true, class: "form-control" })%>
     </div>
     <div class="form-group">
       <%= form.label :details %>

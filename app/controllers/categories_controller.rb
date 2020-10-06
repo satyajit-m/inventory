@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[show edit update destroy storage]
   before_action :authenticate_user!
+  before_action :set_category, only: %i[show edit update destroy storage]
   before_action :check_user_is_admin, except: :index
 
   def index
