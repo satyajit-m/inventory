@@ -16,8 +16,6 @@ gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'turbolinks', '~> 5.2.0'
 gem 'webpacker', '~> 4.0'
-# gem 'redis', '~> 4.0'
-# gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 
 group :development, :test do
