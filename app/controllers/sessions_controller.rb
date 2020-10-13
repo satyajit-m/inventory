@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
     if @user.present?
       User.generate_auth_token(:auth_token, @user)
+      cookies[:id] = @user.id
       session[:auth_token] = @user.auth_token
       redirect_to root_path, flash: { success: t("session.signin_success") }
     else
@@ -12,6 +13,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    cookies.delete(:id)
     session[:auth_token] = nil
     redirect_to root_path, flash: { success: t("session.logout_success") }
   end

@@ -1,6 +1,8 @@
 /*
  *= require_tree .
+ *= require bootstrap
 */
-@import "bootstrap";
+@import "~bootstrap/scss/bootstrap.scss";
 @import "styles";
 @import "sidebar";
+@import "notification";

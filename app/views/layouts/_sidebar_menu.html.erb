@@ -13,11 +13,9 @@
     <%= link_to "Storage", storage_categories_path, class: "side-6" %>
   <% end %>
   <%= link_to notifications_path, class: "side-7 row" do %>
-    <div class="col-6">
-      Notifications
-    </div>
-    <div class="col-6">
-      <%= notification_count %>
+    <div class="col">
+      <%= image_tag("icons/notification_bell") %>
+      <span id="notify_count"><%= notification_count %></span>
     </div>
   <% end %>
   <%= link_to "Issues", issues_path, class: "side-8" %>
