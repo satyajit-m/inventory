@@ -17,7 +17,7 @@
   "devDependencies": {
     "coffeescript": "1.12.7",
     "node-sass": "^4.14.1",
-    "sass-loader": "^7.0.1",
+    "sass-loader": "^7.3.1",
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
