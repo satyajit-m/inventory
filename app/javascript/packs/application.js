@@ -22,7 +22,6 @@ const { flash_info } = require("./flash_alert");
 //= require sidebar
 //= require item
 //= require jquery.transit.min
-//= require coffee
 //= require_tree .
 //= require_tree ./channels
 //= require turbolinks
