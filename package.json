@@ -23,6 +23,5 @@
     "start": "npm run start:webpacker & npm run start:rails",
     "start:webpacker": "ruby ./bin/webpack-dev-server --hot",
     "start:rails": "rails s",
-    "postinstall": "npm rebuild node-sass"
   }
 }
