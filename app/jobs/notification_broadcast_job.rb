@@ -4,6 +4,7 @@ class NotificationBroadcastJob < ApplicationJob
   def perform(counter)
     ActionCable.server.broadcast 'notification_channel',  counter: render_counter(counter)
   end
+  # rails jobs:work
 
   private
 
