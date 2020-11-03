@@ -15,6 +15,7 @@ gem 'omniauth-google-oauth2'
 gem 'popper_js', '~> 1.14.5'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
+gem 'sidekiq', '~> 6.0.2'
 gem 'turbolinks', '~> 5.2.0'
 gem 'webpacker', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
@@ -31,7 +32,6 @@ group :development do
   gem 'guard-livereload'
   gem 'listen', '~> 3.0'
   gem 'redis', '~> 4.2.1'
-  gem 'sidekiq', '~> 6.0.2'
   gem 'spring'
   gem 'web-console', '>= 3.3.0'
 end
