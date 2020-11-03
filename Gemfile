@@ -31,7 +31,7 @@ group :development do
   gem 'guard-livereload'
   gem 'listen', '~> 3.0'
   gem 'redis', '~> 4.2.1'
-  gem 'sidekiq', '~> 6.0.2'
+  gem 'sidekiq', '~> 5.0'
   gem 'spring'
   gem 'web-console', '>= 3.3.0'
 end
