@@ -1,10 +1,6 @@
 class NotificationsChannel < ApplicationCable::Channel
   def subscribed
-    if current_user.admin
-      stream_from "notifications_channel_admin"
-    else
-      stream_from "notifications_channel_#{current_user.id}"
-    end
+    stream_from "notification_channel"
   end
 
   def unsubscribed

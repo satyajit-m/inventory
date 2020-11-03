@@ -24,7 +24,7 @@ class IssuesController < ApplicationController
 
     respond_to do |format|
       if @issue.save
-        Notification.issue_new(@issue)
+
         format.html { redirect_to @issue, flash: { success: t("issue.create_success") } }
         format.json { render :show, status: :created, location: @issue }
       else
@@ -45,7 +45,7 @@ class IssuesController < ApplicationController
 
   def mark_resolved
     if @issue.update(resolved: true)
-      Notification.issue_resolved(@issue)
+      NotifyMailer.send_email(@issue.user, @issue.item).deliver_now
       redirect_to issues_path, flash: { success: t("issue.resolved") }
     end
   end

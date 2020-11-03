@@ -1,8 +1,9 @@
 class NotificationBroadcastJob < ApplicationJob
   queue_as :default
 
-  def perform(counter)
-    ActionCable.server.broadcast 'notification_channel',  counter: render_counter(counter)
+  def perform(new_notify)
+    #ActionCable.server.broadcast 'notification_channel',  counter: render_counter(counter)
+    ActionCable.server.broadcast "notification_channel", content: new_notify
   end
   # rails jobs:work
 

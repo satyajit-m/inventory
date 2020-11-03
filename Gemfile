@@ -6,6 +6,7 @@ ruby '2.6.6'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.0'
 gem 'carrierwave', '~> 2.0'
+gem "figaro"
 gem 'font_awesome5_rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -29,6 +30,8 @@ group :development do
   gem 'better_errors'
   gem 'guard-livereload'
   gem 'listen', '~> 3.0'
+  gem 'redis', '~> 4.2.1'
+  gem 'sidekiq', '~> 6.0.2'
   gem 'spring'
   gem 'web-console', '>= 3.3.0'
 end

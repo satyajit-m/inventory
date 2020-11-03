@@ -12,11 +12,13 @@
   <% if current_user.admin %>
     <%= link_to "Storage", storage_categories_path, class: "side-6" %>
   <% end %>
+  <% if current_user.admin %>
   <%= link_to notifications_path, class: "side-7 row" do %>
     <div class="col">
       <%= image_tag("icons/notification_bell") %>
       <span id="notify_count"><%= notification_count %></span>
     </div>
+  <% end %>
   <% end %>
   <%= link_to "Issues", issues_path, class: "side-8" %>
   <%= link_to "LogOut", logout_path, data: { confirm: "Are you sure to logout?" }  %>
